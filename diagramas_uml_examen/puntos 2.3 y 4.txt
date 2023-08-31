@@ -1,0 +1,84 @@
+convertir a json
+[
+    {
+        "Lechuga": {
+            "nombre": "prueba",
+            "color": "verde",
+            "edad": "1 mes"
+        }
+    },
+    {
+        "Lechuga": {
+            "nombre": "prueba2",
+            "color": "verde",
+            "edad": "1 mes"
+        }
+    }
+]
+
+
+4)	Dada la clase 
+Public class Bicicleta {
+	Public Bicicleta(){
+		
+} 
+
+Public void armarbicicleta(){
+	unir(armarRuedas(), armarChasis());
+}
+	Public String armarChasis(){}
+	Public String armarRuedas(){}
+}
+Refactorizar para que cumpla principio single responsability
+R//
+public class BicicletaAssembler {
+    public Bicicleta armarBicicleta() {
+        Chasis chasis = armarChasis();
+        Ruedas ruedas = armarRuedas();
+        return new Bicicleta(chasis, ruedas);
+    }
+
+    private Chasis armarChasis() {
+        // Lógica para armar el chasis
+        return new Chasis();
+    }
+
+    private Ruedas armarRuedas() {
+        // Lógica para armar las ruedas
+        return new Ruedas();
+    }
+}
+
+public class Bicicleta {
+    private Chasis chasis;
+    private Ruedas ruedas;
+
+    public Bicicleta(Chasis chasis, Ruedas ruedas) {
+        this.chasis = chasis;
+        this.ruedas = ruedas;
+    }
+
+ 
+}
+
+public class Chasis {
+    // Atributos y métodos el chasis
+}
+
+public class Ruedas {
+    // Atributos y métcon las ruedas
+}
+
+
+explicar principios solid
+
+SRP - Principio de Responsabilidad Única Cada clase debe tener solo una razón para cambiar, es decir, debe tener una única responsabilidad.
+
+OCP - Principio de Abierto/Cerrado:
+Las entidades de software (clases, módulos, etc.) deben estar abiertas para extensión pero cerradas para modificación.
+
+LSP - Principio de Sustitución de Liskov: Los objetos de una clase derivada deben poder ser sustituidos por objetos de la clase base sin afectar la integridad del programa.
+
+ISP - Principio de Segregación de Interfaces: Las personas o la entidad, en resumen los clientes  no pueden a estar forzados a depender de interfaces que no utlizan. 
+
+DIP - Principio de Inversión de Dependencia: Los módulos de alto nivel no deben depender de módulos de bajo nivel. Ambos deben depender de abstracciones
